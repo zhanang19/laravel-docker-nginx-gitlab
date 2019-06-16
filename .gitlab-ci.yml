@@ -1,0 +1,14 @@
+# using shell executor
+stages:
+  - development
+  
+development:
+  stage: development
+  script:
+    - source .env.development
+    - cp .env.development .env
+    - docker-compose up --build -d
+  only:
+    - master
+  tags: 
+    - development
